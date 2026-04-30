@@ -395,7 +395,7 @@
       var subject = 'Estimate Request: ' + (state.contact.name || 'New lead');
       try {
         // Phone is the easier follow-up for Palmer's; mailto fallback for record
-        window.location.href = 'mailto:info@precisionepoxyfloorllc.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+        window.location.href = 'mailto:reeganhampt@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
       } catch (err) {}
     });
   }
