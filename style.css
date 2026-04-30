@@ -1407,3 +1407,57 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:36px;bac
   .why-card:hover{ transform: none; }
   .area-chip:hover{ transform: none; }
 }
+
+/* ============================================================
+   Clean Free Estimate CTA card - replaces ugly callout-with-text-link
+   ============================================================ */
+.estimate-cta{
+  background: var(--pe-cream-2);
+  border: 2px solid var(--pe-ink);
+  box-shadow: 6px 6px 0 var(--pe-blue);
+  padding: 40px 36px;
+  margin: 50px 0 16px;
+  text-align: center;
+  position: relative;
+}
+.estimate-cta::before{
+  content:""; position: absolute; inset: 8px;
+  border: 1px dashed var(--pe-ink); pointer-events: none;
+}
+.estimate-cta > *{ position: relative; }
+.estimate-cta .eyebrow{
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.3em;
+  text-transform: uppercase; color: var(--pe-blue); font-weight: 700;
+  margin-bottom: 10px; display: inline-block;
+}
+.estimate-cta h3{
+  font-family: var(--font-display); font-weight: 800;
+  font-size: clamp(28px, 3.6vw, 42px);
+  line-height: 1.05; color: var(--pe-navy); letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+.estimate-cta h3 .italic{ font-style: italic; font-weight: 400; color: var(--pe-blue); }
+.estimate-cta p{
+  font-family: var(--font-body); font-size: 15px; line-height: 1.55;
+  color: var(--pe-navy); opacity: .9;
+  max-width: 520px; margin: 0 auto 22px;
+}
+.estimate-cta .btn{
+  font-size: 15px; padding: 16px 30px;
+}
+.estimate-cta .cta-secondary{
+  display: block; margin-top: 14px;
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--pe-navy); opacity: .65;
+}
+.estimate-cta .cta-secondary a{
+  color: var(--pe-blue); font-weight: 700;
+  border-bottom: 1px dashed currentColor;
+}
+@media (max-width: 640px){
+  .estimate-cta{ padding: 28px 22px; box-shadow: 4px 4px 0 var(--pe-blue); }
+  .estimate-cta h3{ font-size: 24px; }
+  .estimate-cta p{ font-size: 14px; }
+  .estimate-cta .btn{ font-size: 14px; padding: 14px 24px; width: 100%; justify-content: center; }
+}

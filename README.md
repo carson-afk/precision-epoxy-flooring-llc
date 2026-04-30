@@ -1,6 +1,6 @@
-# Precision Epoxy Floor LLC
+# Precision Epoxy Flooring LLC
 
-Marketing website for Precision Epoxy Floor LLC, Idaho Falls' flake floor and full-system epoxy specialists.
+Marketing website for Precision Epoxy Flooring LLC, Idaho Falls' flake floor and full-system epoxy specialists.
 
 - **Production**: https://precisionepoxyflooringllc.com
 - **Hosting**: Vercel (static)
