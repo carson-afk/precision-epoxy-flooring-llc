@@ -446,13 +446,18 @@
         <div class="eyebrow">Request a Free Estimate</div>
         <h3>Let's build your <span class="italic">flake floor.</span></h3>
       </div>
-      <form class="lead-form" onsubmit="event.preventDefault();var f=this;window.location.href='mailto:reeganhampt@gmail.com?subject=Free%20Estimate%20Request%20-%20'+encodeURIComponent(f.name.value)+'&body='+encodeURIComponent('Name: '+f.name.value+'\nPhone: '+f.phone.value+'\nEmail: '+f.email.value+'\nProject Address: '+f.address.value+'\nProject: '+f.project.value+'\nDetails: '+f.message.value);">
-        <div><label for="lf-name">Your name</label><input id="lf-name" name="name" type="text" required placeholder="First &amp; last" /></div>
-        <div><label for="lf-phone">Phone</label><input id="lf-phone" name="phone" type="tel" required placeholder="208-555-0123" /></div>
-        <div><label for="lf-email">Email</label><input id="lf-email" name="email" type="email" required placeholder="you@example.com" /></div>
-        <div><label for="lf-address">Project address</label><input id="lf-address" name="address" type="text" placeholder="Street, city" /></div>
-        <div class="full"><label for="lf-project">What kind of project?</label><input id="lf-project" name="project" type="text" placeholder="Garage, basement, shop, commercial, etc." /></div>
-        <div class="full"><label for="lf-message">Tell us about your project (optional)</label><textarea id="lf-message" name="message" placeholder="Garage size, slab condition, color preference, timeline..."></textarea></div>
+      <form class="lead-form" action="https://formsubmit.co/reeganhampt@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New Free Estimate Request - Precision Epoxy" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="true" />
+        <input type="hidden" name="_next" value="https://precisionepoxyflooringllc.com/contact?sent=1" />
+        <input type="hidden" name="_autoresponse" value="Thanks for reaching out to Precision Epoxy Floor LLC. We received your free estimate request and will follow up within one business day to schedule a free on-site walkthrough. - The Precision Epoxy Team" />
+        <div><label for="lf-name">Your name</label><input id="lf-name" name="Name" type="text" required placeholder="First &amp; last" /></div>
+        <div><label for="lf-phone">Phone</label><input id="lf-phone" name="Phone" type="tel" required placeholder="208-555-0123" /></div>
+        <div><label for="lf-email">Email</label><input id="lf-email" name="Email" type="email" required placeholder="you@example.com" /></div>
+        <div><label for="lf-address">Project address</label><input id="lf-address" name="Project Address" type="text" placeholder="Street, city" /></div>
+        <div class="full"><label for="lf-project">What kind of project?</label><input id="lf-project" name="Project Type" type="text" placeholder="Garage, basement, shop, commercial, etc." /></div>
+        <div class="full"><label for="lf-message">Tell us about your project (optional)</label><textarea id="lf-message" name="Message" placeholder="Garage size, slab condition, color preference, timeline..."></textarea></div>
         <div class="submit-row">
           <small>Response within 1 business day &middot; No spam</small>
           <button type="submit" class="btn btn-cop btn-big">Send My Request &rarr;</button>

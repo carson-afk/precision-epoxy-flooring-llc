@@ -377,26 +377,28 @@
       }
 
       var rangeStr = result ? ('$' + result.low.toLocaleString() + ' - $' + result.high.toLocaleString()) : 'unknown';
-      var body = [
-        "Hi Precision Epoxy Floor team,", '',
-        'A new estimate request came in via your website:', '',
-        'Name: '    + state.contact.name,
-        'Phone: '   + state.contact.phone,
-        'Email: '   + state.contact.email,
-        'Address: ' + state.contact.address, '',
-        'Project: '   + (PROJECT_LABELS[state.project] || state.project),
-        'Size: '      + (SIZE_LABELS[state.size]       || state.size),
-        'Finish: '    + (FINISH_LABELS[state.finish]   || state.finish),
-        'Condition: ' + state.condition + ' prep',
-        'Colors: '    + state.colors,
-        'Ballpark range: ' + rangeStr, '',
-        'Please follow up to schedule the on-site walkthrough.'
-      ].join('\n');
-      var subject = 'Estimate Request: ' + (state.contact.name || 'New lead');
+      // POST to FormSubmit so leads land in inbox without relying on the user's mail client
       try {
-        // Phone is the easier follow-up for Palmer's; mailto fallback for record
-        window.location.href = 'mailto:reeganhampt@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-      } catch (err) {}
+        var fd2 = new FormData();
+        fd2.append('_subject', 'New Estimator Lead - Precision Epoxy');
+        fd2.append('_template', 'table');
+        fd2.append('_captcha', 'false');
+        fd2.append('Name', state.contact.name);
+        fd2.append('Phone', state.contact.phone);
+        fd2.append('Email', state.contact.email);
+        fd2.append('Project Address', state.contact.address);
+        fd2.append('Project Type', PROJECT_LABELS[state.project] || state.project || '');
+        fd2.append('Size', SIZE_LABELS[state.size] || state.size || '');
+        fd2.append('Finish', FINISH_LABELS[state.finish] || state.finish || '');
+        fd2.append('Surface Condition', state.condition || '');
+        fd2.append('Colors', state.colors || '');
+        fd2.append('Ballpark Range', rangeStr);
+        fetch('https://formsubmit.co/ajax/reeganhampt@gmail.com', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: fd2
+        }).catch(function(e){ console.warn('FormSubmit failed:', e); });
+      } catch (err) { console.warn(err); }
     });
   }
 
